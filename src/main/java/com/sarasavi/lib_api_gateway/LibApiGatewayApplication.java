@@ -17,7 +17,8 @@ public class LibApiGatewayApplication {
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route(r -> r.path("/api/students/**")
+                // Book Service Route
+                .route(r -> r.path("/api/v1/books/**")
                         .filters(f -> f
                                 .addResponseHeader("X-Response-Header", "LibApiGateway")
                         )
