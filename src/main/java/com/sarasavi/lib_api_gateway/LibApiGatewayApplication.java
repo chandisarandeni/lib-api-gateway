@@ -31,6 +31,14 @@ public class LibApiGatewayApplication {
                         )
                         .uri("http://localhost:8083")
                 )
+
+                // Member Service Route
+                .route(r -> r.path("/api/v1/members/**")
+                        .filters(f -> f
+                                .addResponseHeader("X-Response-Header", "LibApiGateway")
+                        )
+                        .uri("http://localhost:8082")
+                )
                 .build();
     }
 }
