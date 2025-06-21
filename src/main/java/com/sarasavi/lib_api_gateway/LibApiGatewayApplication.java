@@ -39,6 +39,13 @@ public class LibApiGatewayApplication {
                         )
                         .uri("http://localhost:8082")
                 )
+                // Librarian Service Route
+                .route(r -> r.path("/api/v1/librarians/**")
+                        .filters(f -> f
+                                .addResponseHeader("X-Response-Header", "LibApiGateway")
+                        )
+                        .uri("http://localhost:8082")
+                )
                 .build();
     }
 }
