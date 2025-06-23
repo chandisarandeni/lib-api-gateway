@@ -46,6 +46,13 @@ public class LibApiGatewayApplication {
                         )
                         .uri("http://localhost:8082")
                 )
+                // Admin Service Route
+                .route(r -> r.path("/api/v1/admins/**")
+                        .filters(f -> f
+                                .addResponseHeader("X-Response-Header", "LibApiGateway")
+                        )
+                        .uri("http://localhost:8082")
+                )
                 .build();
     }
 }
