@@ -53,6 +53,14 @@ public class LibApiGatewayApplication {
                         )
                         .uri("http://localhost:8082")
                 )
+
+                // Borrowing Service Route
+                .route(r -> r.path("/api/v1/borrowings/**")
+                        .filters(f -> f
+                                .addResponseHeader("X-Response-Header", "LibApiGateway")
+                        )
+                        .uri("http://localhost:8084")
+                )
                 .build();
     }
 }
