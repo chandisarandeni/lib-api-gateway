@@ -24,10 +24,11 @@ public class LibApiGatewayApplication {
     public CorsWebFilter corsWebFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(List.of(
-                "http://localhost:5173/",
-                "http://localhost:5174/",
-                "http://localhost:5175/",
-                "http://localhost:5176"));
+                "http://localhost:5173/",   // lib-guest-frontend
+                "http://localhost:5174/",   // lib-member-frontend
+                "http://localhost:5175/",   // lib-admin-frontend
+                "http://localhost:5176")    // lib-librarian-frontend
+        );
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.addAllowedHeader("*");
         config.setAllowCredentials(true);
