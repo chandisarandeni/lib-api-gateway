@@ -47,16 +47,19 @@ public class LibApiGatewayApplication {
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
 
+                // ----------------- lib-book-service -----------------
                 // Book Service Route
                 .route(r -> r.path("/api/v1/books/**")
                         .filters(f -> f.addResponseHeader("X-Response-Header", "LibApiGateway"))
                         .uri("http://localhost:8083"))
 
+                // ----------------- lib-rating-service -----------------
                 // Ratings Service Route
                 .route(r -> r.path("/api/v1/ratings/**")
                         .filters(f -> f.addResponseHeader("X-Response-Header", "LibApiGateway"))
                         .uri("http://localhost:8086"))
 
+                // ----------------- lib-user-management-service -----------------
                 // Member Service Route
                 .route(r -> r.path("/api/v1/members/**")
                         .filters(f -> f.addResponseHeader("X-Response-Header", "LibApiGateway"))
@@ -72,6 +75,7 @@ public class LibApiGatewayApplication {
                         .filters(f -> f.addResponseHeader("X-Response-Header", "LibApiGateway"))
                         .uri("http://localhost:8082"))
 
+                // ----------------- lib-borrowing-service -----------------
                 // Borrowing Service Route
                 .route(r -> r.path("/api/v1/borrowings/**")
                         .filters(f -> f.addResponseHeader("X-Response-Header", "LibApiGateway"))
