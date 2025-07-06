@@ -23,7 +23,7 @@ public class LibApiGatewayApplication {
     @Bean
     public CorsWebFilter corsWebFilter() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:5176"));
+        config.setAllowedOrigins(List.of("http://localhost:5173/", "http://localhost:5176"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.addAllowedHeader("*");
         config.setAllowCredentials(true);
