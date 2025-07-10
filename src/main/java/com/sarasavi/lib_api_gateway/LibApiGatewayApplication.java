@@ -58,6 +58,20 @@ public class LibApiGatewayApplication {
                 .route(r -> r.path("/api/v1/ratings/**")
                         .filters(f -> f.addResponseHeader("X-Response-Header", "LibApiGateway"))
                         .uri("http://localhost:8086"))
+                // ----------------- lib-auth-service -----------------
+                // Member Authentication Route
+                .route(r -> r.path("/api/v1/members/auth/**")
+                        .filters(f -> f.addResponseHeader("X-Response-Header", "LibApiGateway"))
+                        .uri("http://localhost:8081"))
+                // Librarian Authentication Route
+                .route(r -> r.path("/api/v1/librarians/auth/**")
+                        .filters(f -> f.addResponseHeader("X-Response-Header", "LibApiGateway"))
+                        .uri("http://localhost:8081"))
+                // Admin Authentication Route
+                .route(r -> r.path("/api/v1/admins/auth/**")
+                        .filters(f -> f.addResponseHeader("X-Response-Header", "LibApiGateway"))
+                        .uri("http://localhost:8081"))
+
 
                 // ----------------- lib-user-management-service -----------------
                 // Member Service Route
